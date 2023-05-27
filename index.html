@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>ImazJS</title>
+
+    <style>
+      .image-view {
+        width: 600px;
+        height: 600px;
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <input
+      type="file"
+      id="inputFile"
+    />
+
+    <div class="image-view"></div>
+
+    <script type="module">
+      import { Imaz } from './lib/main.js';
+
+      const im = new Imaz({
+        view: document.querySelector('.image-view'),
+      });
+
+      im.active();
+
+      // file handle
+      const filePicker = document.getElementById('inputFile');
+      filePicker.addEventListener('input', (e) => {
+        if (!e.target.files[0]) return;
+
+        im.loadFromFile(e.target.files[0]);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "imaz",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/imaz.es.js",
+      "require": "./dist/imaz.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "mathjs": "^11.8.0",
+    "pixi.js": "^7.2.4",
+    "vite": "^4.3.2"
+  }
+}
