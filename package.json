@@ -1,7 +1,6 @@
 {
   "name": "imaz",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.2",
   "type": "module",
   "exports": {
     ".": {
@@ -12,11 +11,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "publish:beta": "npm run build && npm publish --access public --tag beta",
+    "publish:release": "npm run build && npm publish --access public"
   },
   "devDependencies": {
     "mathjs": "^11.8.0",
-    "pixi.js": "^7.2.4",
     "vite": "^4.3.2"
   }
 }
