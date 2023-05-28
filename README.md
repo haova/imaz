@@ -24,6 +24,19 @@ im.destroy();
 im.load(file);
 ```
 
+### Catch events
+
+```js
+im.on('eventName', fnHandle);
+```
+
+### Add tag
+
+```js
+im.clear();
+im.addTag(posVector, sizeVector, content);
+```
+
 ## Modes
 
 ### View (default)

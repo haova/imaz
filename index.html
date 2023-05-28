@@ -22,7 +22,14 @@
       id="inputFile"
     />
 
+    <input
+      type="text"
+      id="inputUrl"
+    />
+
     <div class="image-view"></div>
+
+    <div class="logger"></div>
 
     <script type="module">
       import { Imaz } from './lib/main.js';
@@ -33,6 +40,21 @@
 
       im.active();
 
+      const logger = document.querySelector('.logger');
+
+      // catch event
+      im.on('file', (file) => {
+        logger.innerText += `File: ${file.name}\n`;
+      });
+
+      im.on('url', (url) => {
+        logger.innerText += `URL: ${url.substr(0, 60)}\n`;
+      });
+
+      // tags
+      im.clear();
+      im.addTag([2700, 1100], [700, 700], 'Your Name');
+
       // file handle
       const filePicker = document.getElementById('inputFile');
       filePicker.addEventListener('input', (e) => {
@@ -40,6 +62,12 @@
 
         im.loadFromFile(e.target.files[0]);
       });
+
+      // url handle
+      const inputUrl = document.getElementById('inputUrl');
+      inputUrl.onchange = function () {
+        im.loadFromUrl(inputUrl.value);
+      };
     </script>
   </body>
 </html>
